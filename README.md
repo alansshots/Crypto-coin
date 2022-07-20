@@ -1,4 +1,4 @@
-# cryptocoin
+# Cryptocoin
 
 ## Project setup
 ```
