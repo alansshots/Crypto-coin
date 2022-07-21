@@ -71,222 +71,36 @@
                             
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
+                    <tbody v-if="coins">
+                        <tr v-for="(coin,index) in coins"
+                        :key="index">
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <div class="flex items-center justify-center">
                                     <div class="flex-shrink-0">
                                         <a href="#" class="block relative">
-                                            <img alt="profil" src="/images/person/8.jpg" class="mx-auto object-cover rounded-full h-10 w-10 "/>
+                                            <img alt="profil" :src="coin.iconUrl" class="mx-auto object-cover rounded-full h-10 w-10 "/>
                                         </a>
                                     </div>
                                     <div class="ml-3">
                                         <p class="text-gray-900 whitespace-no-wrap">
-                                            Jean marc
+                                            {{coin.symbol}}
                                         </p>
                                     </div>
                                 </div>
                             </td>
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <p class="text-gray-900 whitespace-no-wrap text-center">
-                                    Admin
+                                   <span>$</span> {{coin.price}}
                                 </p>
                             </td>
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <p class="text-gray-900 whitespace-no-wrap text-center">
-                                    12/09/2020
+                                   <span>$</span> {{coin.marketCap}}
                                 </p>
                             </td>
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap text-center">
-                                    Graph
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <div class="flex items-center justify-center">
-                                    <div class="flex-shrink-0">
-                                        <a href="#" class="block relative">
-                                            <img alt="profil" src="/images/person/8.jpg" class="mx-auto object-cover rounded-full h-10 w-10 "/>
-                                        </a>
-                                    </div>
-                                    <div class="ml-3">
-                                        <p class="text-gray-900 whitespace-no-wrap">
-                                            Jean marc
-                                        </p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap text-center">
-                                    Admin
-                                </p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap text-center">
-                                    12/09/2020
-                                </p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap text-center">
-                                    Graph
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <div class="flex items-center justify-center">
-                                    <div class="flex-shrink-0">
-                                        <a href="#" class="block relative">
-                                            <img alt="profil" src="/images/person/8.jpg" class="mx-auto object-cover rounded-full h-10 w-10 "/>
-                                        </a>
-                                    </div>
-                                    <div class="ml-3">
-                                        <p class="text-gray-900 whitespace-no-wrap">
-                                            Jean marc
-                                        </p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap text-center">
-                                    Admin
-                                </p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap text-center">
-                                    12/09/2020
-                                </p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap text-center">
-                                    Graph
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <div class="flex items-center justify-center">
-                                    <div class="flex-shrink-0">
-                                        <a href="#" class="block relative">
-                                            <img alt="profil" src="/images/person/8.jpg" class="mx-auto object-cover rounded-full h-10 w-10 "/>
-                                        </a>
-                                    </div>
-                                    <div class="ml-3">
-                                        <p class="text-gray-900 whitespace-no-wrap">
-                                            Jean marc
-                                        </p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap text-center">
-                                    Admin
-                                </p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap text-center">
-                                    12/09/2020
-                                </p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap text-center">
-                                    Graph
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <div class="flex items-center justify-center">
-                                    <div class="flex-shrink-0">
-                                        <a href="#" class="block relative">
-                                            <img alt="profil" src="/images/person/8.jpg" class="mx-auto object-cover rounded-full h-10 w-10 "/>
-                                        </a>
-                                    </div>
-                                    <div class="ml-3">
-                                        <p class="text-gray-900 whitespace-no-wrap">
-                                            Jean marc
-                                        </p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap text-center">
-                                    Admin
-                                </p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap text-center">
-                                    12/09/2020
-                                </p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap text-center">
-                                    Graph
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <div class="flex items-center justify-center">
-                                    <div class="flex-shrink-0">
-                                        <a href="#" class="block relative">
-                                            <img alt="profil" src="/images/person/8.jpg" class="mx-auto object-cover rounded-full h-10 w-10 "/>
-                                        </a>
-                                    </div>
-                                    <div class="ml-3">
-                                        <p class="text-gray-900 whitespace-no-wrap">
-                                            Jean marc
-                                        </p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap text-center">
-                                    Admin
-                                </p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap text-center">
-                                    12/09/2020
-                                </p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap text-center">
-                                    Graph
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <div class="flex items-center justify-center">
-                                    <div class="flex-shrink-0">
-                                        <a href="#" class="block relative">
-                                            <img alt="profil" src="/images/person/8.jpg" class="mx-auto object-cover rounded-full h-10 w-10 "/>
-                                        </a>
-                                    </div>
-                                    <div class="ml-3">
-                                        <p class="text-gray-900 whitespace-no-wrap">
-                                            Jean marc
-                                        </p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap text-center">
-                                    Admin
-                                </p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap text-center">
-                                    12/09/2020
-                                </p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap text-center">
-                                    Graph
-                                </p>
+                                <p v-if="coin.change < 0" class="text-red-500 whitespace-no-wrap text-center font-bold">{{coin.change}} </p>
+                                <p v-if="coin.change > 0" class="text-green-500 whitespace-no-wrap text-center font-bold">+{{coin.change}} </p>
                             </td>
                         </tr>
                     </tbody>
@@ -327,12 +141,40 @@
 </template>
 
 <script>
+import CoinsMixin from '../mixins/CoinsMixin'
 
 export default {
   name: 'Home',
+  mixins: [CoinsMixin],
   data() {
     return {
+        coins: null,
+        timer: null
     }
   },
+  methods: {
+    getCoinsHandler() {
+        this.getCoins()
+        .then( res => {
+            this.coins = res.data.data.coins
+            console.log(res.data.data.coins)
+        })
+    }
+  },
+  mounted() {
+    this.getCoinsHandler()
+  },
+  beforeDestroy() {
+    clearInterval(this.timer)
+  },
+  filters: {
+        // redOrGreen: function (value) {
+        //     if(value < 0) {
+        //         return  '<p class="text-red-500 whitespace-no-wrap text-center"> {{coin.change}} </p>'
+        //     } else {
+        //         return  '<p class="text-green-500 whitespace-no-wrap text-center"> {{coin.change}} </p>'
+        //     }
+        // }
+    }
 }
 </script>
