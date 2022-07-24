@@ -4,7 +4,35 @@ import axios from "axios";
 export default {
     name:'CoinsMixin',
     methods: {
-        getCoins() {
+      // Load all coins
+        getCoins(period, currency, orderBy) {
+            return new Promise((resolve, reject) => {
+             axios('https://coinranking1.p.rapidapi.com/coins', {
+                method: 'GET',
+                headers: {
+                  'X-RapidAPI-Key': '9017c02485mshb5a944787affd7fp111d56jsn317556eabccc',
+                  'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
+                },
+                params: {
+                  referenceCurrencyUuid: currency,
+                  timePeriod: period,
+                  'tiers[0]': '1',
+                  orderBy: orderBy,
+                  orderDirection: 'desc',
+                  limit: '15',
+                  offset: '0'
+                }
+             })
+             .then(res => {
+                resolve(res)
+             })   
+             .catch(err => {
+                reject(err)
+             }) 
+            })
+        },
+      // Request for filters
+         getBestCoins() {
             return new Promise((resolve, reject) => {
              axios('https://coinranking1.p.rapidapi.com/coins', {
                 method: 'GET',
@@ -30,7 +58,6 @@ export default {
              }) 
             })
         },
-
         // Get single coin info
          getSingleCoin(coinId) {
             return new Promise((resolve, reject) => {

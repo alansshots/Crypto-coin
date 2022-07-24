@@ -4,45 +4,63 @@
     
     <div class="flex flex-row justify-center items-center">
     <div>
-        <button id="dropdownDefault" data-dropdown-toggle="dropdown" class="mx-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">All Coins <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+        <button id="dropdownDefault" data-dropdown-toggle="dropdown" class="mx-2 text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">{{period}}<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
         <!-- Dropdown menu -->
         <div id="dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
             <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
               <li>
-                <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Best Coins</a>
+                <a  class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="period = '3h', getCoinsHandler()">3h</a>
               </li>
               <li>
-                <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Worst Coins</a>
+                <a  class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="period = '24h', getCoinsHandler()">24h</a>
+              </li>
+              <li>
+                <a  class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="period = '7d', getCoinsHandler()">7d</a>
+              </li>
+              <li>
+                <a  class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="period = '30d', getCoinsHandler()">30d</a>
+              </li>
+              <li>
+                <a  class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="period = '3m', getCoinsHandler()">3m</a>
+              </li>
+              <li>
+                <a  class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="period = '1y', getCoinsHandler()">1y</a>
+              </li>
+              <li>
+                <a  class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="period = '3y', getCoinsHandler()">3y</a>
+              </li>
+              <li>
+                <a  class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="period = '5y', getCoinsHandler()">5y</a>
               </li>
             </ul>
         </div>
     </div>
 
     <div>
-        <button id="dropdownDefault" data-dropdown-toggle="dropdown-two" class="mx-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">USD <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+        <button id="dropdownDefault" data-dropdown-toggle="dropdown-two" class="mx-2 text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">USD <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
         <!-- Dropdown menu -->
         <div id="dropdown-two" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
             <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
               <li>
-                <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">EUR</a>
+                <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="currency = 'yhjMzLPhuIDl', getCoinsHandler()">USD</a>
               </li>
               <li>
-                <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">BGN</a>
+                <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="currency = '5k-_VTxqtCEI', getCoinsHandler()">EUR</a>
               </li>
             </ul>
         </div>
       </div>
     
     <div>
-        <button id="dropdownDefault" data-dropdown-toggle="dropdown-three" class="mx-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Market Cap <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+        <button id="dropdownDefault" data-dropdown-toggle="dropdown-three" class="mx-2 text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 capitalize" type="button">{{orderBy}} <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
         <!-- Dropdown menu -->
         <div id="dropdown-three" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
             <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
               <li>
-                <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Market Cap</a>
+                <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="orderBy = 'marketCap', getCoinsHandler()">Market Cap</a>
               </li>
               <li>
-                <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">24h Trade Volume</a>
+                <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="orderBy = '24hVolume', getCoinsHandler()">24hVolume</a>
               </li>
             </ul>
         </div>
@@ -66,14 +84,14 @@
                                 Market Cap
                             </th>
                             <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-center text-sm uppercase font-normal">
-                                24h
+                                {{period}}
                             </th>
                             
                         </tr>
                     </thead>
                     <tbody v-if="coins">
                         <tr v-for="(coin,index) in coins"
-                        :key="index">
+                        :key="index" >
                         <router-link :to="'/coin/'+ coin.uuid">
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <div class="flex items-center justify-center">
@@ -91,12 +109,14 @@
                             </td>
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <p class="text-gray-900 whitespace-no-wrap text-center">
-                                   <span>$</span> {{coin.price}}
+                                   <span> $ {{coin.price}}</span>
                                 </p>
                             </td>
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <p class="text-gray-900 whitespace-no-wrap text-center">
-                                   <span>$</span> {{coin.marketCap}}
+                                   <!-- <span>$</span> {{coin.marketCap}} -->
+                                   <span v-if="currency = '5k-_VTxqtCEI'"> EUR {{coin.marketCap}}</span>
+                                   <span v-if="currency = 'yhjMzLPhuIDl'"> $ {{coin.marketCap}}</span>
                                 </p>
                             </td>
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -151,15 +171,16 @@ export default {
   data() {
     return {
         coins: null,
-        timer: null
+        period: '24h',
+        currency: 'yhjMzLPhuIDl',
+        orderBy: 'marketCap'
     }
   },
   methods: {
     getCoinsHandler() {
-        this.getCoins()
+        this.getCoins(this.period, this.currency, this.orderBy)
         .then( res => {
             this.coins = res.data.data.coins
-            console.log(res.data.data.coins)
         })
     }
   },
