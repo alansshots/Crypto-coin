@@ -90,10 +90,12 @@
                         </tr>
                     </thead>
                     <tbody v-if="coins">
+                            
                         <tr v-for="(coin,index) in coins"
-                        :key="index" >
-                        <router-link :to="'/coin/'+ coin.uuid">
+                        :key="index">
+                        <!-- <router-link :to="'/coin/'+ coin.uuid"> -->
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <router-link :to="'/coin/'+ coin.uuid">
                                 <div class="flex items-center justify-center">
                                     <div class="flex-shrink-0">
                                         <a href="#" class="block relative">
@@ -106,24 +108,30 @@
                                         </p>
                                     </div>
                                 </div>
+                                </router-link>
                             </td>
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <router-link :to="'/coin/'+ coin.uuid">
                                 <p class="text-gray-900 whitespace-no-wrap text-center">
                                    <span> $ {{coin.price}}</span>
                                 </p>
+                                </router-link>
                             </td>
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <router-link :to="'/coin/'+ coin.uuid">
                                 <p class="text-gray-900 whitespace-no-wrap text-center">
                                    <!-- <span>$</span> {{coin.marketCap}} -->
                                    <span v-if="currency = '5k-_VTxqtCEI'"> EUR {{coin.marketCap}}</span>
                                    <span v-if="currency = 'yhjMzLPhuIDl'"> $ {{coin.marketCap}}</span>
                                 </p>
+                                </router-link>
                             </td>
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <router-link :to="'/coin/'+ coin.uuid">
                                 <p v-if="coin.change < 0" class="text-red-500 whitespace-no-wrap text-center font-bold">{{coin.change}} </p>
                                 <p v-if="coin.change > 0" class="text-green-500 whitespace-no-wrap text-center font-bold">+{{coin.change}} </p>
+                                </router-link>
                             </td>
-                            </router-link>
                         </tr>
                     </tbody>
                 </table>
