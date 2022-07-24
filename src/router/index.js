@@ -12,7 +12,7 @@ const routes = [
     component: Home
   },
   {
-    path: '/coin',
+    path: '/coin/:id',
     name: 'CoinView',
     component: CoinView
   }

@@ -74,11 +74,12 @@
                     <tbody v-if="coins">
                         <tr v-for="(coin,index) in coins"
                         :key="index">
+                        <router-link :to="'/coin/'+ coin.uuid">
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <div class="flex items-center justify-center">
                                     <div class="flex-shrink-0">
                                         <a href="#" class="block relative">
-                                            <img alt="profil" :src="coin.iconUrl" class="mx-auto object-cover rounded-full h-10 w-10 "/>
+                                            <img alt="coin" :src="coin.iconUrl" class="mx-auto object-cover rounded-full h-10 w-10 "/>
                                         </a>
                                     </div>
                                     <div class="ml-3">
@@ -102,6 +103,7 @@
                                 <p v-if="coin.change < 0" class="text-red-500 whitespace-no-wrap text-center font-bold">{{coin.change}} </p>
                                 <p v-if="coin.change > 0" class="text-green-500 whitespace-no-wrap text-center font-bold">+{{coin.change}} </p>
                             </td>
+                            </router-link>
                         </tr>
                     </tbody>
                 </table>

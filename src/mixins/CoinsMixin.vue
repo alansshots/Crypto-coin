@@ -29,8 +29,47 @@ export default {
                 reject(err)
              }) 
             })
+        },
+
+        // Get single coin info
+         getSingleCoin(coinId) {
+            return new Promise((resolve, reject) => {
+             axios(`https://coinranking1.p.rapidapi.com/coin/${coinId}`, {
+                method: 'GET',
+                params: {referenceCurrencyUuid: 'yhjMzLPhuIDl', timePeriod: '24h'},
+                headers: {
+                  'X-RapidAPI-Key': '9017c02485mshb5a944787affd7fp111d56jsn317556eabccc',
+                  'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
+                },
+             })
+             .then(res => {
+                resolve(res)
+             })   
+             .catch(err => {
+                reject(err)
+             }) 
+            })
+        },
+
+        // Get single coin info
+         getSingleCoinHistory(coinId) {
+            return new Promise((resolve, reject) => {
+             axios(`https://coinranking1.p.rapidapi.com/coin/${coinId}/history`, {
+                method: 'GET',
+                params: {referenceCurrencyUuid: 'yhjMzLPhuIDl', timePeriod: '24h'},
+                headers: {
+                  'X-RapidAPI-Key': '9017c02485mshb5a944787affd7fp111d56jsn317556eabccc',
+                  'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
+                },
+             })
+             .then(res => {
+                resolve(res)
+             })   
+             .catch(err => {
+                reject(err)
+             }) 
+            })
         }
-        
 
     //     getIncompleteTickets() {
     //         return new Promise((resolve, reject) => {

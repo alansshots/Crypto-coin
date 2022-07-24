@@ -8,7 +8,7 @@
 <div class="w-full flex flex-col items-center p-2 justify-between nav">
 
     <div class="mb-2 flex flex-col justify-center items-center text-3xl font-bold text-blue-600">
-        Cryptocoin.com
+        <router-link to="/">Cryptocoin.com </router-link>
         <span class="text-sm font-semibold text-gray-400">
           Making cryptocurrency stats useful.
         </span>
