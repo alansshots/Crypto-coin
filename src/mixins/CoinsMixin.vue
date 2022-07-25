@@ -31,33 +31,6 @@ export default {
              }) 
             })
         },
-      // Request for filters
-         getBestCoins() {
-            return new Promise((resolve, reject) => {
-             axios('https://coinranking1.p.rapidapi.com/coins', {
-                method: 'GET',
-                headers: {
-                  'X-RapidAPI-Key': '9017c02485mshb5a944787affd7fp111d56jsn317556eabccc',
-                  'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
-                },
-                params: {
-                  referenceCurrencyUuid: 'yhjMzLPhuIDl',
-                  timePeriod: '24h',
-                  'tiers[0]': '1',
-                  orderBy: 'marketCap',
-                  orderDirection: 'desc',
-                  limit: '15',
-                  offset: '0'
-                }
-             })
-             .then(res => {
-                resolve(res)
-             })   
-             .catch(err => {
-                reject(err)
-             }) 
-            })
-        },
         // Get single coin info
          getSingleCoin(coinId) {
             return new Promise((resolve, reject) => {
@@ -78,7 +51,7 @@ export default {
             })
         },
 
-        // Get single coin info
+        // Get single coin history
          getSingleCoinHistory(coinId) {
             return new Promise((resolve, reject) => {
              axios(`https://coinranking1.p.rapidapi.com/coin/${coinId}/history`, {

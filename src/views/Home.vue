@@ -42,10 +42,10 @@
         <div id="dropdown-two" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
             <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
               <li>
-                <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="currency = 'yhjMzLPhuIDl', getCoinsHandler()">USD</a>
+                <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="currency = 'yhjMzLPhuIDl',currencySymbl = '$', getCoinsHandler()">USD</a>
               </li>
               <li>
-                <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="currency = '5k-_VTxqtCEI', getCoinsHandler()">EUR</a>
+                <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="currency = '5k-_VTxqtCEI',currencySymbl = '#' , getCoinsHandler()">EUR</a>
               </li>
             </ul>
         </div>
@@ -113,7 +113,7 @@
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <router-link :to="'/coin/'+ coin.uuid">
                                 <p class="text-gray-900 whitespace-no-wrap text-center">
-                                   <span> $ {{coin.price}}</span>
+                                   <span> {{currencySymbl}} {{coin.price}}</span>      
                                 </p>
                                 </router-link>
                             </td>
@@ -121,8 +121,7 @@
                                 <router-link :to="'/coin/'+ coin.uuid">
                                 <p class="text-gray-900 whitespace-no-wrap text-center">
                                    <!-- <span>$</span> {{coin.marketCap}} -->
-                                   <span v-if="currency = '5k-_VTxqtCEI'"> EUR {{coin.marketCap}}</span>
-                                   <span v-if="currency = 'yhjMzLPhuIDl'"> $ {{coin.marketCap}}</span>
+                                   <span> {{currencySymbl}} {{coin.marketCap}}</span>                                 
                                 </p>
                                 </router-link>
                             </td>
@@ -180,7 +179,8 @@ export default {
     return {
         coins: null,
         period: '24h',
-        currency: 'yhjMzLPhuIDl',
+        currency: null,
+        currencySymbl: '$',
         orderBy: 'marketCap'
     }
   },

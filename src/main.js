@@ -5,6 +5,7 @@ import './assets/tailwind.css'
 import 'flowbite'
 import Chartkick from 'vue-chartkick'
 import Chart from 'chart.js/auto'
+import '@/plugins/apexcharts'
 
 Vue.use(Chartkick.use(Chart))
 Vue.config.productionTip = false
