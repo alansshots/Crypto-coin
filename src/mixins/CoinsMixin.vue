@@ -4,7 +4,7 @@ import axios from "axios";
 export default {
     name:'CoinsMixin',
     methods: {
-      // Load all coins
+        // Load all coins
         getCoins(period, currency, orderBy) {
             return new Promise((resolve, reject) => {
              axios('https://coinranking1.p.rapidapi.com/coins', {
@@ -31,6 +31,27 @@ export default {
              }) 
             })
         },
+      
+        // Search Coin
+        searchCoin(keyWord) {
+            return new Promise((resolve, reject) => {
+             axios(`https://coinranking1.p.rapidapi.com/search-suggestions?query=${keyWord}`, {
+                method: 'GET',
+                params: {referenceCurrencyUuid: 'yhjMzLPhuIDl'},
+                headers: {
+                  'X-RapidAPI-Key': '9017c02485mshb5a944787affd7fp111d56jsn317556eabccc',
+                  'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
+                }
+             })
+             .then(res => {
+                resolve(res)
+             })   
+             .catch(err => {
+                reject(err)
+             }) 
+            })
+        },
+
         // Get single coin info
          getSingleCoin(coinId) {
             return new Promise((resolve, reject) => {

@@ -103,24 +103,27 @@
       <div class="w-full sm:p-4 px-4 mb-6">
         <h4 class=""><router-link to="/">Coins</router-link> > {{coin.name}}</h4>
         <div class="flex flex-row items-center title-font font-medium text-xl mb-2">
-          <div>
+          <div class="mt-2">
             <img alt="profil" :src="coin.iconUrl" class=" object-cover rounded-full h-12 w-12"/>
             <p class="text-center">{{coin.symbol}}</p>
           </div>
-          <p>akwdpokwapdok</p>
+          <p class="ml-2 text-3xl">{{coin.name}} </p>
         </div>
-        <div class="leading-relaxed">Pour-over craft beer pug drinking vinegar live-edge gastropub, keytar neutra sustainable fingerstache kickstarter.</div>
+        <div class="leading-relaxed" >
+        <!-- {{coin.description}} -->
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam enim harum deserunt esse in architecto debitis repellat? Ad, mollitia ipsam?
+        </div>
       </div>
       <div class="p-4 sm:w-1/2 lg:w-1/4 w-1/2">
-        <h2 class="title-font font-medium text-3xl text-red-500 text-center">{{coin.change}}</h2>
+        <h2 class="title-font font-medium text-3xl text-red-500 text-center">{{coin.change | formatToUnits}}</h2>
         <p class="leading-relaxed text-center">24H</p>
       </div>
       <div class="p-4 sm:w-1/2 lg:w-1/4 w-1/2">
-        <h2 class="title-font font-medium text-3xl text-gray-900 text-center">{{coin.marketCap}}</h2>
+        <h2 class="title-font font-medium text-3xl text-gray-900 text-center">{{coin.marketCap | formatToUnits}}</h2>
         <p class="leading-relaxed text-center">Market Cap</p>
       </div>
       <div class="p-4 sm:w-1/2 lg:w-1/4 w-1/2">
-        <h2 class="title-font font-medium text-3xl text-gray-900 text-center">{{coin.allTimeHigh.price}}</h2>
+        <h2 class="title-font font-medium text-3xl text-gray-900 text-center">{{coin.allTimeHigh.price | formatToUnits}}</h2>
         <p class="leading-relaxed text-center">All Time High</p>
       </div>
       <div class="p-4 sm:w-1/2 lg:w-1/4 w-1/2">
@@ -179,7 +182,8 @@ export default {
             // console.log(this.coinHistoryFull)
         })
      },
-    //  filers
+
+    //  Filters
      getCoinsHandler() {
         this.getCoins(this.period, this.currency, this.orderBy)
         .then( res => {
@@ -187,12 +191,18 @@ export default {
         })
     }
   },
+  filters: {
+        formatToUnits: function(number) {
+            const abbrev = ['', 'K', 'M', 'B', 'T'];
+            const unrangifiedOrder = Math.floor(Math.log10(Math.abs(number)) / 3)
+            const order = Math.max(0, Math.min(unrangifiedOrder, abbrev.length -1 ))
+            const suffix = abbrev[order];
+
+            return (number / Math.pow(10, order * 3)).toFixed(4) + suffix;
+        }
+    },
   mounted() {
     this.getCoinInfoHandler()
-    // this.getSingleCoin()
-    // .then( res => {
-    //         console.log(res.data)
-    //     })
   }
 }
 </script>

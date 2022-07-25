@@ -45,7 +45,7 @@
                 <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="currency = 'yhjMzLPhuIDl',currencySymbl = '$', getCoinsHandler()">USD</a>
               </li>
               <li>
-                <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="currency = '5k-_VTxqtCEI',currencySymbl = '#' , getCoinsHandler()">EUR</a>
+                <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="currency = '5k-_VTxqtCEI',currencySymbl = '€' , getCoinsHandler()">EUR</a>
               </li>
             </ul>
         </div>
@@ -113,7 +113,7 @@
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <router-link :to="'/coin/'+ coin.uuid">
                                 <p class="text-gray-900 whitespace-no-wrap text-center">
-                                   <span> {{currencySymbl}} {{coin.price}}</span>      
+                                   <span class="text-md font-semibold"> {{currencySymbl}} {{coin.price | formatToUnits}}</span>      
                                 </p>
                                 </router-link>
                             </td>
@@ -121,7 +121,7 @@
                                 <router-link :to="'/coin/'+ coin.uuid">
                                 <p class="text-gray-900 whitespace-no-wrap text-center">
                                    <!-- <span>$</span> {{coin.marketCap}} -->
-                                   <span> {{currencySymbl}} {{coin.marketCap}}</span>                                 
+                                   <span class="text-md font-semibold"> {{currencySymbl}} {{coin.marketCap | formatToUnits}}</span>                                 
                                 </p>
                                 </router-link>
                             </td>
@@ -181,7 +181,8 @@ export default {
         period: '24h',
         currency: null,
         currencySymbl: '$',
-        orderBy: 'marketCap'
+        orderBy: 'marketCap',
+        keyWord:null,
     }
   },
   methods: {
@@ -190,7 +191,7 @@ export default {
         .then( res => {
             this.coins = res.data.data.coins
         })
-    }
+    },
   },
   mounted() {
     this.getCoinsHandler()
@@ -199,13 +200,14 @@ export default {
     clearInterval(this.timer)
   },
   filters: {
-        // redOrGreen: function (value) {
-        //     if(value < 0) {
-        //         return  '<p class="text-red-500 whitespace-no-wrap text-center"> {{coin.change}} </p>'
-        //     } else {
-        //         return  '<p class="text-green-500 whitespace-no-wrap text-center"> {{coin.change}} </p>'
-        //     }
-        // }
-    }
+        formatToUnits: function(number) {
+            const abbrev = ['', 'K', 'M', 'B', 'T'];
+            const unrangifiedOrder = Math.floor(Math.log10(Math.abs(number)) / 3)
+            const order = Math.max(0, Math.min(unrangifiedOrder, abbrev.length -1 ))
+            const suffix = abbrev[order];
+
+            return (number / Math.pow(10, order * 3)).toFixed(4) + suffix;
+        }
+  }
 }
 </script>

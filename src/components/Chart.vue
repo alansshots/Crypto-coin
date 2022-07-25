@@ -47,13 +47,13 @@ export default {
         ]
       },
       title: {
-        text: 'Current Price',
+        text: 'Graph',
         align: 'center',
         style: {
           fontSize:  '20px',
         },
       },
-      colors: ['#00897b']
+      colors: ['#3B82F6']
     },
     series: [{
       name: 'series-1',
@@ -77,6 +77,16 @@ export default {
         })
      }    
   },
+  filters: {
+        formatToUnits: function(number) {
+            const abbrev = ['', 'K', 'M', 'B', 'T'];
+            const unrangifiedOrder = Math.floor(Math.log10(Math.abs(number)) / 3)
+            const order = Math.max(0, Math.min(unrangifiedOrder, abbrev.length -1 ))
+            const suffix = abbrev[order];
+
+            return (number / Math.pow(10, order * 3)).toFixed(4) + suffix;
+        }
+    },
   mounted() {
     this.getCoinInfoHandler()
   }
