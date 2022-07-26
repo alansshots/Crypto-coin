@@ -18,7 +18,7 @@
         <input  v-model="keyWord" type="search" name="serch" placeholder="Search" class="flex-grow px-4 rounded-l-full rounded-r-full text-sm focus:outline-none"/>
     </form>
     <!-- Search suggestions dropdown -->
-<div v-if="coins" class="relative inline-block text-left">
+<div v-if="coins" class="relative inline-block text-left suggestion-coins" @click="coins = null, keyWord = ''">
     <div class="absolute z-10 -ml-4 mt-0.5 transform px-2 w-screen max-w-lg sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
         <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
             <div class="relative grid gap-6 bg-white dark:bg-gray-800 px-5 py-6 sm:gap-8 sm:p-8 divide-y divide-gray-100">
@@ -39,7 +39,7 @@
 </div>
 </div>
   <!-- Main App -->
-    <router-view/>
+    <router-view :key="this.$route.path"/>
 
     <!-- Footer -->
     <footer class="text-gray-600 body-font">
@@ -88,6 +88,7 @@ export default {
   mixins: [CoinsMixin],
   data() {
     return {
+        show: Boolean,
         coins: null,
         keyWord:null,
     }
@@ -106,7 +107,11 @@ export default {
             this.coins = res.data.data.coins
             console.log(res.data.data.coins)
         })
-      }
+      },
+      // addClass() {
+      //   let suggestionBox = document.querySelector('.suggestion-coins')
+      //   suggestionBox.classList.add("hidden")
+      // }
   },
   filters: {
         formatToUnits: function(number) {
@@ -117,10 +122,7 @@ export default {
 
             return (number / Math.pow(10, order * 3)).toFixed(4) + suffix;
         }
-    },
-  mounted() {
-    // this.getCoinsHandler()
-  }
+    }
 }
 </script>
 
