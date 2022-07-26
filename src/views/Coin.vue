@@ -1,105 +1,10 @@
 <template>
   <div class="coin-page">
-    <!-- <div class="flex justify-between">
-      <div class="flex flex-col justify-center items-center">
-        <h4 class=""><router-link to="/">Coins</router-link> > {{coin.name}}</h4>
-        <div class="flex flex-row justify-center items-center">
-          <span>
-             <img alt="profil" :src="coin.iconUrl" class=" object-cover rounded-full h-16 w-16 "/>
-          </span>
-          <h1 class="text-3xl">{{coin.name}}</h1>
-          <span class="px-4 py-2  text-base rounded-full text-blue-500 border border-blue-500 undefined ">{{coin.rank}}</span>
-          <div>
-            <h1>${{coin.price}}</h1>
-          </div>
-        </div> -->
-        
-        <!-- Price chart-->
-        <!-- price chart header -->
-        <!-- <div>
-          <h2>Price chart</h2>
-          <p>24h <span>{{coin.change}}</span></p>
-          <p>High <span>${{coin.change}}</span></p>
-          <p>Low <span>${{coin.change}}</span></p>
-          <p>Average <span>${{coin.change}}</span></p>
-        </div> -->
-        <!-- <area-chart :data="chartData"></area-chart>
-        <line-chart :data="coinHistoryFull"></line-chart> -->
-      <!-- </div>
-      <Chart/>
-    </div> -->
+  
 
 <section class="text-gray-600 body-font">
-  <div class="container px-5 py-24 mx-auto flex flex-wrap">
-    <div class="flex flex-wrap -mx-4 mt-auto mb-auto lg:w-1/2 sm:w-2/3 content-start sm:pr-10">
-
-<div class="flex flex-row justify-center items-center">
-    <div>
-        <button id="dropdownDefault" data-dropdown-toggle="dropdown-1" class="mx-2 text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">{{period}}<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-        <!-- Dropdown menu -->
-        <div id="dropdown-1" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
-            <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
-              <li>
-                <a  class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="period = '3h', getCoinsHandler()">3h</a>
-              </li>
-              <li>
-                <a  class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="period = '24h', getCoinsHandler()">24h</a>
-              </li>
-              <li>
-                <a  class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="period = '7d', getCoinsHandler()">7d</a>
-              </li>
-              <li>
-                <a  class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="period = '30d', getCoinsHandler()">30d</a>
-              </li>
-              <li>
-                <a  class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="period = '3m', getCoinsHandler()">3m</a>
-              </li>
-              <li>
-                <a  class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="period = '1y', getCoinsHandler()">1y</a>
-              </li>
-              <li>
-                <a  class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="period = '3y', getCoinsHandler()">3y</a>
-              </li>
-              <li>
-                <a  class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="period = '5y', getCoinsHandler()">5y</a>
-              </li>
-            </ul>
-        </div>
-    </div>
-
-    <div>
-        <button id="dropdownDefault" data-dropdown-toggle="dropdown-2" class="mx-2 text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">USD <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-        <!-- Dropdown menu -->
-        <div id="dropdown-2" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
-            <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
-              <li>
-                <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="currency = 'yhjMzLPhuIDl',currencySymbl = '$', getCoinsHandler()">USD</a>
-              </li>
-              <li>
-                <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="currency = '5k-_VTxqtCEI',currencySymbl = '#' , getCoinsHandler()">EUR</a>
-              </li>
-            </ul>
-        </div>
-      </div>
-    
-    <div>
-        <button id="dropdownDefault" data-dropdown-toggle="dropdown-3" class="mx-2 text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 capitalize" type="button">{{orderBy}} <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-        <!-- Dropdown menu -->
-        <div id="dropdown-3" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
-            <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
-              <li>
-                <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="orderBy = 'marketCap', getCoinsHandler()">Market Cap</a>
-              </li>
-              <li>
-                <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="orderBy = '24hVolume', getCoinsHandler()">24hVolume</a>
-              </li>
-            </ul>
-        </div>
-      </div>
-
-    </div>
-
-
+  <div class="px-5 py-24 flex flex-col justify-center items-center flex-wrap">
+    <div class="flex flex-wrap -mx-4 mt-auto mb-auto lg:w-2/3 sm:w-2/3 content-start sm:pr-10">
       <div class="w-full sm:p-4 px-4 mb-6">
         <h4 class=""><router-link to="/">Coins</router-link> > {{coin.name}}</h4>
         <div class="flex flex-row items-center title-font font-medium text-xl mb-2">
@@ -131,7 +36,7 @@
         <p class="leading-relaxed text-center">Rank</p>
       </div>
     </div>
-    <div class="lg:w-1/2 sm:w-1/3 w-full rounded-lg overflow-hidden mt-6 sm:mt-0">
+    <div class="lg:w-2/3 sm:w-1/3 w-full rounded-lg overflow-hidden mt-6 sm:mt-0">
       <Chart/>
     </div>
   </div>

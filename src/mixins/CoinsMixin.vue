@@ -5,7 +5,7 @@ export default {
     name:'CoinsMixin',
     methods: {
         // Load all coins
-        getCoins(period, currency, orderBy) {
+        getCoins(period, currency, orderBy, offset) {
             return new Promise((resolve, reject) => {
              axios('https://coinranking1.p.rapidapi.com/coins', {
                 method: 'GET',
@@ -20,7 +20,7 @@ export default {
                   orderBy: orderBy,
                   orderDirection: 'desc',
                   limit: '15',
-                  offset: '0'
+                  offset: `${15 * offset}`
                 }
              })
              .then(res => {
@@ -73,11 +73,11 @@ export default {
         },
 
         // Get single coin history
-         getSingleCoinHistory(coinId) {
+         getSingleCoinHistory(coinId, hour, currency) {
             return new Promise((resolve, reject) => {
              axios(`https://coinranking1.p.rapidapi.com/coin/${coinId}/history`, {
                 method: 'GET',
-                params: {referenceCurrencyUuid: 'yhjMzLPhuIDl', timePeriod: '24h'},
+                params: {referenceCurrencyUuid: currency, timePeriod: hour},
                 headers: {
                   'X-RapidAPI-Key': '9017c02485mshb5a944787affd7fp111d56jsn317556eabccc',
                   'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
