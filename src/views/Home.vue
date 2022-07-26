@@ -3,68 +3,60 @@
     <div class="container mx-auto px-4 sm:px-8 coin-table">
     
     <div class="flex flex-row justify-center items-center">
-    <div>
-        <button id="dropdownDefault" data-dropdown-toggle="dropdown" class="mx-2 text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">{{period}}<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-        <!-- Dropdown menu -->
-        <div id="dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
-            <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
-              <li>
-                <a  class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="period = '3h', getCoinsHandler()">3h</a>
-              </li>
-              <li>
-                <a  class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="period = '24h', getCoinsHandler()">24h</a>
-              </li>
-              <li>
-                <a  class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="period = '7d', getCoinsHandler()">7d</a>
-              </li>
-              <li>
-                <a  class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="period = '30d', getCoinsHandler()">30d</a>
-              </li>
-              <li>
-                <a  class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="period = '3m', getCoinsHandler()">3m</a>
-              </li>
-              <li>
-                <a  class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="period = '1y', getCoinsHandler()">1y</a>
-              </li>
-              <li>
-                <a  class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="period = '3y', getCoinsHandler()">3y</a>
-              </li>
-              <li>
-                <a  class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="period = '5y', getCoinsHandler()">5y</a>
-              </li>
-            </ul>
-        </div>
-    </div>
-
-    <div>
-        <button id="dropdownDefault" data-dropdown-toggle="dropdown-two" class="mx-2 text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">USD <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-        <!-- Dropdown menu -->
-        <div id="dropdown-two" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
-            <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
-              <li>
-                <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="currency = 'yhjMzLPhuIDl',currencySymbl = '$', getCoinsHandler()">USD</a>
-              </li>
-              <li>
-                <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="currency = '5k-_VTxqtCEI',currencySymbl = '€' , getCoinsHandler()">EUR</a>
-              </li>
-            </ul>
-        </div>
-      </div>
     
-    <div>
-        <button id="dropdownDefault" data-dropdown-toggle="dropdown-three" class="mx-2 text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 capitalize" type="button">{{orderBy}} <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-        <!-- Dropdown menu -->
-        <div id="dropdown-three" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
-            <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
-              <li>
-                <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="orderBy = 'marketCap', getCoinsHandler()">Market Cap</a>
-              </li>
-              <li>
-                <a href="#" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="orderBy = '24hVolume', getCoinsHandler()">24hVolume</a>
-              </li>
-            </ul>
-        </div>
-      </div> 
+    <div class="mb-10 flex flex-row justify-center items-center"> 
+      <label class="text-gray-700 mx-1">
+          <select class="block w-52 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" v-model="period">
+              <option value="3h" @click="getCoinsHandler">
+                  3 Hours
+              </option>
+              <option value="24h" @click="getCoinsHandler">
+                  24 Hours
+              </option>
+              <option value="7d" @click="getCoinsHandler">
+                  7 Days
+              </option>
+              <option value="30d" @click="getCoinsHandler">
+                  30 Days
+              </option>
+              <option value="3m" @click="getCoinsHandler">
+                  3 Months
+              </option>
+              <option value="1y" @click="getCoinsHandler">
+                  1 Year
+              </option>
+              <option value="3y" @click="getCoinsHandler">
+                  3 Years
+              </option>
+              <option value="5y" @click="getCoinsHandler">
+                  5 Years
+              </option>
+          </select>
+      </label>
+
+      <label class="text-gray-700 mx-1">
+          <select class="block w-52 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" v-model="currency" >
+              <option value="yhjMzLPhuIDl" @click="currencySymbl = '$', getCoinsHandler">
+                  USD 
+              </option>
+              <option value="5k-_VTxqtCEI" @click="currencySymbl = '€', getCoinsHandler">
+                  EUR
+              </option>
+          </select>
+      </label>
+
+       <label class="text-gray-700 mx-1">
+          <select class="block w-52 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" v-model="orderBy" >
+              <option value="marketCap" @click="getCoinsHandler">
+                  Market Cap 
+              </option>
+              <option value="24hVolume" @click="getCoinsHandler">
+                  24 Hour Volume
+              </option>
+          </select>
+      </label>
+    </div>
+    
 
     </div>
 
@@ -158,7 +150,7 @@
                         <button type="button" class="w-full px-4 py-2 border text-base text-blue-500 bg-white hover:bg-gray-100" @click="pageOffset = 61, getCoinsHandler()">
                             62
                         </button>
-                        <button type="button" @click="pageOffset = pageOffset + 1 && pageOffset < 61, getCoinsHandler()" class="w-full p-4 border-t border-b border-r text-base  rounded-r-xl text-blue-500 bg-white hover:bg-gray-100">
+                        <button type="button" @click="pageOffset = pageOffset + 1, getCoinsHandler()" class="w-full p-4 border-t border-b border-r text-base  rounded-r-xl text-blue-500 bg-white hover:bg-gray-100">
                             <svg width="9" fill="currentColor" height="8" class="" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1363 877l-742 742q-19 19-45 19t-45-19l-166-166q-19-19-19-45t19-45l531-531-531-531q-19-19-19-45t19-45l166-166q19-19 45-19t45 19l742 742q19 19 19 45t-19 45z">
                                 </path>
@@ -183,7 +175,7 @@ export default {
     return {
         coins: null,
         period: '24h',
-        currency: null,
+        currency: 'yhjMzLPhuIDl',
         currencySymbl: '$',
         orderBy: 'marketCap',
         keyWord:null,
