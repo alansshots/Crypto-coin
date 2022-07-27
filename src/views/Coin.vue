@@ -1,12 +1,10 @@
 <template>
   <div class="coin-page">
-  
-
 <section class="text-gray-600 body-font">
-  <div class="px-5 py-24 flex flex-col justify-center items-center flex-wrap">
+  <div class="px-2 py-5 flex flex-col justify-center items-center flex-wrap">
     <div class="flex flex-wrap -mx-4 mt-auto mb-auto lg:w-2/3 sm:w-2/3 content-start sm:pr-10">
-      <div class="w-full sm:p-4 px-4 mb-6">
-        <h4 class=""><router-link to="/">Coins</router-link> > {{coin.name}}</h4>
+      <div class="w-full sm:p-4 pl-4 md:px-4 mb-6">
+        <h4 class="mb-1"><router-link to="/">Coins</router-link> > {{coin.name}}</h4>
         <div class="flex flex-row items-center title-font font-medium text-xl mb-2">
           <div class="mt-2">
             <img alt="profil" :src="coin.iconUrl" class=" object-cover rounded-full h-12 w-12"/>
@@ -15,23 +13,22 @@
           <p class="ml-2 text-3xl">{{coin.name}} </p>
         </div>
         <div class="leading-relaxed" >
-        <!-- {{coin.description}} -->
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam enim harum deserunt esse in architecto debitis repellat? Ad, mollitia ipsam?
+        Website: <a :href="coin.websiteUrl" target="_blank"> {{coin.websiteUrl}} </a>
         </div>
       </div>
-      <div class="p-4 sm:w-1/2 lg:w-1/4 w-1/2">
+      <div class="p-2 sm:w-1/2 lg:w-1/4 w-1/2">
         <h2 class="title-font font-medium text-3xl text-red-500 text-center">{{coin.change | formatToUnits}}</h2>
         <p class="leading-relaxed text-center">24H</p>
       </div>
-      <div class="p-4 sm:w-1/2 lg:w-1/4 w-1/2">
+      <div class="p-2 sm:w-1/2 lg:w-1/4 w-1/2">
         <h2 class="title-font font-medium text-3xl text-gray-900 text-center">{{coin.marketCap | formatToUnits}}</h2>
         <p class="leading-relaxed text-center">Market Cap</p>
       </div>
-      <div class="p-4 sm:w-1/2 lg:w-1/4 w-1/2">
+      <div class="p-2 sm:w-1/2 lg:w-1/4 w-1/2">
         <h2 class="title-font font-medium text-3xl text-gray-900 text-center">{{coin.allTimeHigh.price | formatToUnits}}</h2>
         <p class="leading-relaxed text-center">All Time High</p>
       </div>
-      <div class="p-4 sm:w-1/2 lg:w-1/4 w-1/2">
+      <div class="p-2 sm:w-1/2 lg:w-1/4 w-1/2">
         <h2 class="title-font font-medium text-3xl text-gray-900 text-center">{{coin.rank}}</h2>
         <p class="leading-relaxed text-center">Rank</p>
       </div>

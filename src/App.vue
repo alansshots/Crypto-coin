@@ -8,7 +8,7 @@
 <div class="w-full flex flex-col items-center p-2 justify-between nav">
 
     <div class="mb-2 flex flex-col justify-center items-center text-3xl font-bold text-blue-600">
-        <router-link to="/">Cryptocoin.com </router-link>
+        <router-link to="/">Cryptocoin.com</router-link>
         <span class="text-sm font-semibold text-gray-400">
           Making cryptocurrency stats useful.
         </span>
@@ -19,7 +19,7 @@
     </form>
     <!-- Search suggestions dropdown -->
 <div v-if="coins" class="relative inline-block text-left suggestion-coins" @click="coins = null, keyWord = ''">
-    <div class="absolute z-10 -ml-4 mt-0.5 transform px-2 w-screen max-w-lg sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
+    <div class="absolute z-10 -ml-4 mt-0.5 transform px-2 w-screen max-w-lg sm:px-0 lg:ml-0 lg:left-1/2 -translate-x-44 lg:-translate-x-1/2 ">
         <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
             <div class="relative grid gap-6 bg-white dark:bg-gray-800 px-5 py-6 sm:gap-8 sm:p-8 divide-y divide-gray-100">
                 <router-link :to="'/coin/'+ coin.uuid" v-for="(coin,index) in coins" :key="index"  class="-m-3 p-3 flex items-center hover:bg-gray-50">
@@ -130,4 +130,10 @@ export default {
 /* #nav a.router-link-exact-active {
   color: #42b983;
 } */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+
 </style>

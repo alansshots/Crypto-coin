@@ -4,8 +4,8 @@
     
     <div class="flex flex-row justify-center items-center">
     
-    <div class="mb-10 flex flex-row justify-center items-center"> 
-      <label class="text-gray-700 mx-1">
+    <div class="mb-6 flex flex-col md:flex-row justify-center items-center"> 
+      <label class="text-gray-700 mx-1 mb-2">
           <select class="block w-52 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" v-model="period">
               <option value="3h" @click="getCoinsHandler">
                   3 Hours
@@ -34,7 +34,7 @@
           </select>
       </label>
 
-      <label class="text-gray-700 mx-1">
+      <label class="text-gray-700 mx-1 mb-2">
           <select class="block w-52 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" v-model="currency" >
               <option value="yhjMzLPhuIDl" @click="currencySymbl = '$', getCoinsHandler">
                   USD 
@@ -45,7 +45,7 @@
           </select>
       </label>
 
-       <label class="text-gray-700 mx-1">
+       <label class="text-gray-700 mx-1 mb-2">
           <select class="block w-52 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" v-model="orderBy" >
               <option value="marketCap" @click="getCoinsHandler">
                   Market Cap 
@@ -56,33 +56,31 @@
           </select>
       </label>
     </div>
-    
 
     </div>
 
-    <div class="py-8 coin-table">
-        <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
-            <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
+    <div class="coin-table">
+        <div class="-mx-4 sm:-mx-8 px-1 sm:px-8 py-1 overflow-x-auto">
+            <div class="inline-block min-w-full rounded-lg overflow-hidden">
                 <table class="min-w-full leading-normal">
                     <thead>
                         <tr>
-                            <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-center text-sm uppercase font-normal">
+                            <th scope="col" class="py-3 bg-white  border-b border-gray-200 text-gray-800  text-center text-sm uppercase font-normal">
                                 Coin Name
                             </th>
-                            <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-center text-sm uppercase font-normal">
+                            <th scope="col" class="py-3 bg-white  border-b border-gray-200 text-gray-800  text-center text-sm uppercase font-normal">
                                 Price
                             </th>
-                            <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-center text-sm uppercase font-normal">
+                            <th scope="col" class="py-3 bg-white  border-b border-gray-200 text-gray-800  text-center text-sm uppercase font-normal">
                                 Market Cap
                             </th>
-                            <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-center text-sm uppercase font-normal">
+                            <th scope="col" class="py-3 bg-white  border-b border-gray-200 text-gray-800  text-center text-sm uppercase font-normal">
                                 {{period}}
                             </th>
                             
                         </tr>
                     </thead>
                     <tbody v-if="coins">
-                            
                         <tr v-for="(coin,index) in coins"
                         :key="index">
                         <!-- <router-link :to="'/coin/'+ coin.uuid"> -->

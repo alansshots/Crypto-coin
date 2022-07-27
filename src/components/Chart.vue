@@ -2,7 +2,7 @@
   <div>
     <div class="mb-10 flex flex-row justify-center items-center"> 
       <label class="text-gray-700 mx-1">
-          <select class="block w-52 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" v-model="hour">
+          <select class="block w-40 md:w-52 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" v-model="hour">
               <option value="3h" @click="getCoinInfoHandler">
                   3 Hours
               </option>
@@ -31,7 +31,7 @@
       </label>
 
       <label class="text-gray-700 mx-1">
-          <select class="block w-52 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" v-model="currency" >
+          <select class="block w-40 md:w-52 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" v-model="currency" >
               <option value="yhjMzLPhuIDl" @click="getCoinInfoHandler">
                   USD 
               </option>
@@ -42,7 +42,7 @@
       </label>
     </div>
     <div class="chart-wrapper">
-      <apexchart  type="line" :options="options" :series="series">
+      <apexchart type="line" :options="options" :series="series">
       </apexchart>
     </div>
   </div>
@@ -183,4 +183,6 @@ div.chart-wrapper {
   align-items: center;
   justify-content: center;
 }
+
+
 </style>
