@@ -171,6 +171,8 @@ export default {
   mixins: [CoinsMixin],
   data() {
     return {
+        timer: null,
+        timerAnimation: null,
         coins: null,
         period: '24h',
         currency: 'yhjMzLPhuIDl',
@@ -185,11 +187,19 @@ export default {
         this.getCoins(this.period, this.currency, this.orderBy, this.pageOffset)
         .then( res => {
             this.coins = res.data.data.coins
+            console.log(res.data.data.coins)
+            document.querySelector('.coin-table').classList.add('animate-pulse')
+            // this.timerAnimation = setInterval(() => {
+            //     document.querySelector('.coin-table').classList.remove('animate-pulse')
+            // }, 2000)
         })
     },
   },
   mounted() {
-    this.getCoinsHandler()
+    this.getCoinsHandler(),
+    this.timer = setInterval(() => {
+        this.getCoinsHandler()
+    }, 5000)
   },
   beforeDestroy() {
     clearInterval(this.timer)
