@@ -33,7 +33,7 @@
         <p class="leading-relaxed text-center">Rank</p>
       </div>
     </div>
-    <div class="lg:w-2/3 sm:w-1/3 w-full rounded-lg overflow-hidden mt-6 sm:mt-0">
+    <div class="lg:w-2/3 w-full mt-6 sm:mt-0">
       <Chart/>
     </div>
   </div>

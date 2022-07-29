@@ -172,7 +172,6 @@ export default {
   data() {
     return {
         timer: null,
-        timerAnimation: null,
         coins: null,
         period: '24h',
         currency: 'yhjMzLPhuIDl',
@@ -187,11 +186,8 @@ export default {
         this.getCoins(this.period, this.currency, this.orderBy, this.pageOffset)
         .then( res => {
             this.coins = res.data.data.coins
-            console.log(res.data.data.coins)
-            document.querySelector('.coin-table').classList.add('animate-pulse')
-            // this.timerAnimation = setInterval(() => {
-            //     document.querySelector('.coin-table').classList.remove('animate-pulse')
-            // }, 2000)
+            document.querySelector('.coin-table').classList.add('update-pulse')
+            setTimeout(function(){ document.querySelector('.coin-table').classList.remove('update-pulse'); }, 2000);
         })
     },
   },
@@ -199,7 +195,7 @@ export default {
     this.getCoinsHandler(),
     this.timer = setInterval(() => {
         this.getCoinsHandler()
-    }, 5000)
+    }, 10000)
   },
   beforeDestroy() {
     clearInterval(this.timer)
@@ -216,3 +212,19 @@ export default {
   }
 }
 </script>
+
+<style  scoped>
+.update-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) ;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
+
+</style>
