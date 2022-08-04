@@ -17,16 +17,16 @@
         </div>
       </div>
       <div class="p-2 sm:w-1/2 lg:w-1/4 w-1/2">
-        <h2 class="title-font font-medium text-3xl text-red-500 text-center">{{coin.change | formatToUnits}}</h2>
+        <h2 class="title-font font-medium text-3xl text-red-500 text-center">{{coin.change | formatToUnits}}%</h2>
         <p class="leading-relaxed text-center">24H</p>
       </div>
       <div class="p-2 sm:w-1/2 lg:w-1/4 w-1/2">
-        <h2 class="title-font font-medium text-3xl text-gray-900 text-center">{{coin.marketCap | formatToUnits}}</h2>
-        <p class="leading-relaxed text-center">Market Cap</p>
+        <h2 class="title-font font-medium text-3xl text-gray-900 text-center">{{coin.marketCap | formatToUnits}}%</h2>
+        <p class="leading-relaxed text-center">Market Cap (USD)</p>
       </div>
       <div class="p-2 sm:w-1/2 lg:w-1/4 w-1/2">
         <h2 class="title-font font-medium text-3xl text-gray-900 text-center">{{coin.allTimeHigh.price | formatToUnits}}</h2>
-        <p class="leading-relaxed text-center">All Time High</p>
+        <p class="leading-relaxed text-center">All Time High (USD)</p>
       </div>
       <div class="p-2 sm:w-1/2 lg:w-1/4 w-1/2">
         <h2 class="title-font font-medium text-3xl text-gray-900 text-center">{{coin.rank}}</h2>

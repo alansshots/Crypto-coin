@@ -2,40 +2,40 @@
   <div>
     <div class="mb-10 flex flex-row justify-center items-center"> 
       <label class="text-gray-700 mx-1">
-          <select class="block w-40 md:w-52 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" v-model="hour">
-              <option value="3h" @click="getCoinInfoHandler">
+          <select class="block w-40 md:w-52 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" v-model="hour" @change="getCoinInfoHandler">
+              <option value="3h">
                   3 Hours
               </option>
-              <option value="24h" @click="getCoinInfoHandler">
+              <option value="24h">
                   24 Hours
               </option>
-              <option value="7d" @click="getCoinInfoHandler">
+              <option value="7d">
                   7 Days
               </option>
-              <option value="30d" @click="getCoinInfoHandler">
+              <option value="30d">
                   30 Days
               </option>
-              <option value="3m" @click="getCoinInfoHandler">
+              <option value="3m">
                   3 Months
               </option>
-              <option value="1y" @click="getCoinInfoHandler">
+              <!-- <option value="1y">
                   1 Year
-              </option>
-              <option value="3y" @click="getCoinInfoHandler">
+              </option> -->
+              <!-- <option value="3y">
                   3 Years
-              </option>
-              <option value="5y" @click="getCoinInfoHandler">
+              </option> -->
+              <!-- <option value="5y">
                   5 Years
-              </option>
+              </option> -->
           </select>
       </label>
 
       <label class="text-gray-700 mx-1">
-          <select class="block w-40 md:w-52 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" v-model="currency" >
-              <option value="yhjMzLPhuIDl" @click="getCoinInfoHandler">
+          <select class="block w-40 md:w-52 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" v-model="currency" @change="getCoinInfoHandler">
+              <option value="yhjMzLPhuIDl">
                   USD 
               </option>
-              <option value="5k-_VTxqtCEI" @click="getCoinInfoHandler">
+              <option value="5k-_VTxqtCEI">
                   EUR
               </option>
           </select>
