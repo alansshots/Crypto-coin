@@ -1,21 +1,17 @@
 <template>
   <div id="app" @click="coins = null, keyWord = ''">
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>  -->
     <!-- Header -->
 <div class="w-full flex flex-col items-center p-2 justify-between nav">
 
     <div class="mb-2 flex flex-col justify-center items-center text-3xl font-bold text-blue-600">
-        <router-link to="/">Cryptocoin.com</router-link>
+        <router-link to="/">Cryptocoin</router-link>
         <span class="text-sm font-semibold text-gray-400">
           Making cryptocurrency stats useful.
         </span>
     </div>
 
     <form class="w-full md:w-1/3 h-10 cursor-pointer border border-gray-300 text-sm rounded-full flex" @submit.prevent="searchCoinsHandler">
-        <input  v-model="keyWord" @change="searchCoinsHandler" type="search" name="serch" placeholder="Search" class="flex-grow px-4 rounded-l-full rounded-r-full text-sm focus:outline-none"/>
+        <input  v-model="keyWord" @change="searchCoinsHandler" type="text" name="search" placeholder="Search" class="flex-grow px-4 rounded-l-full rounded-r-full text-sm focus:outline-none"/>
     </form>
     <!-- Search suggestions dropdown -->
 <div v-if="coins" class="relative inline-block text-left suggestion-coins" @click="coins = null, keyWord = ''">
@@ -44,11 +40,11 @@
     <!-- Footer -->
     <footer class="text-gray-600 body-font">
       <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
-        <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+        <a class="flex title-font font-medium items-center md:justify-start justify-center text-blue-600">
           <span class="ml-3 text-xl">Cryptocoin</span>
         </a>
         <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">©
-          <a href="#" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">Made by <a href="http://colorblockweb.com/">Colorblock Web Development</a></a>
+          <a href="#" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">Made by <a href="http://colorblockweb.com/" class="text-blue-500">Colorblock Web Development</a></a>
         </p>
         <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
           <a href="https://www.facebook.com/Colorblock-Web-Development-100395486057801" class="text-gray-500">
@@ -90,7 +86,7 @@ export default {
     return {
         show: Boolean,
         coins: null,
-        keyWord:null,
+        keyWord: 'Search',
     }
   },
   methods: {
@@ -108,10 +104,6 @@ export default {
             console.log(res.data.data.coins)
         })
       },
-      // addClass() {
-      //   let suggestionBox = document.querySelector('.suggestion-coins')
-      //   suggestionBox.classList.add("hidden")
-      // }
   },
   filters: {
         formatToUnits: function(number) {
@@ -127,9 +119,6 @@ export default {
 </script>
 
 <style>
-/* #nav a.router-link-exact-active {
-  color: #42b983;
-} */
 html, body {
     max-width: 100%;
     overflow-x: hidden;

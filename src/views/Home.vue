@@ -6,40 +6,40 @@
     
     <div class="mb-6 flex flex-col md:flex-row justify-center items-center"> 
       <label class="text-gray-700 mx-1 mb-2">
-          <select class="block w-52 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" v-model="period">
-              <option value="3h" @click="getCoinsHandler">
+          <select class="block w-52 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" v-model="period" @change="getCoinsHandler">
+              <option value="3h">
                   3 Hours
               </option>
-              <option value="24h" @click="getCoinsHandler">
+              <option value="24h">
                   24 Hours
               </option>
-              <option value="7d" @click="getCoinsHandler">
+              <option value="7d">
                   7 Days
               </option>
-              <option value="30d" @click="getCoinsHandler">
+              <option value="30d">
                   30 Days
               </option>
-              <option value="3m" @click="getCoinsHandler">
+              <option value="3m">
                   3 Months
               </option>
-              <option value="1y" @click="getCoinsHandler">
+              <option value="1y">
                   1 Year
               </option>
-              <option value="3y" @click="getCoinsHandler">
+              <option value="3y">
                   3 Years
               </option>
-              <option value="5y" @click="getCoinsHandler">
+              <option value="5y">
                   5 Years
               </option>
           </select>
       </label>
 
       <label class="text-gray-700 mx-1 mb-2">
-          <select class="block w-52 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" v-model="currency" >
-              <option value="yhjMzLPhuIDl" @click="currencySymbl = '$', getCoinsHandler">
+          <select class="block w-52 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" v-model="currency" @change="getCoinsHandler">
+              <option value="yhjMzLPhuIDl" @click="currencySymbl = '$'">
                   USD 
               </option>
-              <option value="5k-_VTxqtCEI" @click="currencySymbl = '€', getCoinsHandler">
+              <option value="5k-_VTxqtCEI" @click="currencySymbl = '€'">
                   EUR
               </option>
           </select>
@@ -83,7 +83,6 @@
                     <tbody v-if="coins">
                         <tr v-for="(coin,index) in coins"
                         :key="index">
-                        <!-- <router-link :to="'/coin/'+ coin.uuid"> -->
                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                 <router-link :to="'/coin/'+ coin.uuid">
                                 <div class="flex items-center justify-center">

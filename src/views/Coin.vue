@@ -17,11 +17,12 @@
         </div>
       </div>
       <div class="p-2 sm:w-1/2 lg:w-1/4 w-1/2">
-        <h2 class="title-font font-medium text-3xl text-red-500 text-center">{{coin.change | formatToUnits}}%</h2>
+        <h2 v-if="coin.change < 0" class="title-font font-medium text-3xl text-red-500 text-center">{{coin.change}}%</h2>
+        <h2 v-if="coin.change > 0" class="title-font font-medium text-3xl text-green-500 text-center">+{{coin.change}}%</h2>
         <p class="leading-relaxed text-center">24H</p>
       </div>
       <div class="p-2 sm:w-1/2 lg:w-1/4 w-1/2">
-        <h2 class="title-font font-medium text-3xl text-gray-900 text-center">{{coin.marketCap | formatToUnits}}%</h2>
+        <h2 class="title-font font-medium text-3xl text-gray-900 text-center">{{coin.marketCap | formatToUnits}}</h2>
         <p class="leading-relaxed text-center">Market Cap (USD)</p>
       </div>
       <div class="p-2 sm:w-1/2 lg:w-1/4 w-1/2">
@@ -60,11 +61,9 @@ export default {
       currency: null,
       currencySymbl: '$',
       orderBy: 'marketCap',
-      // --------------
       coin:null,
       coinHistory:null,
       coinHistoryFull:null,
-      // chartData: [["10:00", 2.59], ["10:30", 2.67], ["11:00", 3.00], ["11:30", 1.46], ["12:00", 1.20]]
     }
   },
   methods: {
@@ -80,8 +79,6 @@ export default {
         .then( res => {
             this.coinHistory = res.data.data.history[2]
             this.coinHistoryFull = Object.values(this.coinHistory).reverse()
-            // console.log(this.coinHistory)
-            // console.log(this.coinHistoryFull)
         })
      },
 

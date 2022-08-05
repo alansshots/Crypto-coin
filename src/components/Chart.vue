@@ -122,10 +122,8 @@ export default {
       });
       // price history
       this.getSingleCoinHistory(coinId, this.hour, this.currency).then((res) => {
-        // this.coinHistorySeries = res.data.data.history;
         this.coinHistoryIndex = res.data.data.history.map(
           (a) => this.formatDate(new Date(a.timestamp * 1000))
-          // (a) => a.timestamp
         );
         this.coinHistoryValue = res.data.data.history.map((a) => a.price);
 
@@ -142,25 +140,12 @@ export default {
         this.series = [{
           data: history
         }]
-
-        // console.log(this.coinHistoryIndex);
-        // console.log(this.coinHistoryValue);
-        console.log(this.coinHistorySeries);
       });
     },
     pluck(array, key) {
       return array.map((o) => o[key]);
     },
     formatDate(date) {
-      // var d = new Date(date),
-      //   month = "" + (d.getMonth() + 1),
-      //   day = "" + d.getDate(),
-      //   year = d.getFullYear();
-
-      // if (month.length < 2) month = "0" + month;
-      // if (day.length < 2) day = "0" + day;
-
-      // return [month, day, year].join("/");
           var year = date.getFullYear();
           var month = date.getMonth() + 1;
           var day = date.getDate();
@@ -183,14 +168,7 @@ export default {
   mounted() {
     this.getCoinInfoHandler();
     this.updateChart()
-  },
-  watch: {
-    question(newQuestion, oldQuestion) {
-      if (newQuestion.indexOf('?') > -1) {
-        this.getAnswer()
-      }
-    }
-  },
+  }
 };
 </script>
 
@@ -204,6 +182,5 @@ div.chart-wrapper {
 #vuechart-example {
   height: 550px !important;
 }
-
 
 </style>
